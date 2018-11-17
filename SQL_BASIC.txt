@@ -1,0 +1,173 @@
+create database PathfrontDB
+
+use PathfrontDB
+
+create Table tbl_Customers
+(
+CustomerID int,
+CustomerName varchar(100),
+CustomerCity varchar(100),
+CustomerDOB DateTime
+)
+
+
+sp_help tbl_Customers
+
+
+
+select * from tbl_Customers
+
+insert tbl_Customers values(1001,'John','Chennai','10-22-1991')
+insert tbl_Customers values(1002,'Smith','Hyd','2-2-1990')
+insert tbl_Customers values(1003,'Raheem','Andra','2-2-1998')
+insert tbl_Customers values(10004,'Geeth','Karnataka','4-5-1990')
+insert tbl_Customers values(1004,'Kala','pune','9-3-1998')
+insert tbl_Customers values(1005,'thr',null,null)
+insert tbl_Customers (CustomerID,CustomerName)values (1007,'dff')
+
+
+
+
+select * from tbl_Customers
+
+
+
+select CustomerID ,CustomerName from tbl_Customers
+
+
+select * from tbl_Customers where CustomerCity='chennai'
+
+
+update tbl_Customers set CustomerCity='Hyd' ,CustomerName='John' where CustomerID=1001
+
+select * from tbl_Customers
+
+
+
+
+delete tbl_Customers where CustomerID=1001
+
+
+select * from tbl_Customers--Used to delete Row,trigger job,create log entry
+
+
+truncate table tbl_Customers--Used to delete entire data without creating log entry and doesnt support where clauase,doesnt support trigger
+
+alter table tbl_Customers add CustomerEmail varchar(100)
+
+Select * from tbl_Customers
+
+
+
+alter table tbl_customers drop column customeremail
+
+select * from tbl_Customers
+
+alter table tbl_Customers alter column customername varchar(200)
+
+
+
+select * from tbl_Customers where customercity in ('Chennai','pune')
+
+select * from tbl_Customers where CustomerCity is null
+
+select * from tbl_Customers where CustomerDOB
+between '12-12-1990' and '3-4-1998'
+
+
+select * from tbl_Customers order by CustomerDOB desc
+
+select * from tbl_Customers order by CustomerDOB asc ,CustomerCity desc
+
+
+
+
+select top 1 * from tbl_Employee  
+order by EmployeeSalary des
+
+
+
+select len('Hello')
+
+
+select SUBSTRING('hello',1,4)
+
+select LOWER('hello')
+
+select upper('hello')
+
+select left('hello',2)
+
+select RIGHT('hello',2)
+
+select ISNUMERIC('12a')
+
+select CEILING(25.01)
+
+select FLOOR(25.99)
+
+select ROUND(256.234,2)
+
+
+
+create table tbl_Employees
+(
+EmployeeID int,
+EmployeeName varchar(100),
+EmployeeCity varchar(100),
+Employeesalary int
+)
+
+
+insert  tbl_Employees values(100,'keerthi','Tumkur',12000)
+insert  tbl_Employees values(101,'Kumar','Hyd',20000)
+insert  tbl_Employees values(102,'Ramesh','chennai',70000)
+insert  tbl_Employees values(103,'Latha','Andra',50000)
+insert  tbl_Employees values(104,'Sarala','Karnataka',45000)
+
+select * from tbl_Employees
+
+
+select sum(EmployeeSalary) from tbl_Employees
+
+select AVG(EmployeeSalary) from tbl_Employees
+
+select min(EmployeeSalary) from tbl_Employees
+
+select max(EmployeeSalary) from tbl_Employees
+
+select count(*) from tbl_Employees
+
+
+select GETDATE()
+
+select * from tbl_Customers
+
+
+select customerid,customername,datediff(yy,customerdob,getdate()) as 'Age',
+DATENAME(dw,CustomerDOB)as 'Day',DATEPART(dw,CustomerDOB) as 'Number'
+from tbl_Customers
+
+
+select DATEADD(mm,10,customerdob) from tbl_Customers
+
+
+
+select CONVERT(varchar(100),employeeSalary) from tbl_Employees
+
+select cast (employeesalary as decimal(12,2)) from tbl_Employees
+
+select EmployeeCity ,COUNT(*) from tbl_Employees group by EmployeeCity
+
+select EmployeeCity ,AVG(EmployeeSalary) as avg from tbl_Employees group by EmployeeCity
+
+
+
+select EmployeeCity ,max(EmployeeSalary) as Max from tbl_Employees group by EmployeeCity
+
+
+select employeecity, count(*) from tbl_Employees where Employeesalary>10000
+group by EmployeeCity
+
+select employeecity ,count (*) from tbl_Employees group by EmployeeCity
+having count(*)>2

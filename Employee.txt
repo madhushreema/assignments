@@ -1,0 +1,126 @@
+create database Emp_DB
+
+create table Employees
+(
+EmployeeID int,
+EmployeeFname varchar(100),
+EmployeeLname varchar(100),
+EmployeeCity varchar(100),
+EmployeeDOB DateTime,
+EmployeeSalary int,
+Employeestatus varchar(100),
+)
+
+create table Employees
+(
+EmployeeID int,
+EmployeeFname varchar(100),
+EmployeeLname varchar(100),
+EmployeeCity varchar(100),
+EmployeeDOB DateTime,
+EmployeeSalary int,
+Employeestatus varchar(100),
+)
+alter table Employees add EmployeeDpt varchar(100)
+
+
+select * from Employees
+alter table Employees add EmployeeDOJ DateTime
+
+
+select * from Employees
+
+insert Employees values(101,'J','C','Banglore','3-2-1990',20000,'Working','Test','9-8-2010')
+
+insert Employees values(102,'r','Rahu','Tumkur','7-10-1991',20089,'Working','Developer','1-10-2009')
+
+insert Employees values(103,'o','Chitra','Hyd','9-5-1999',null,'NotWorking','null','9-8-2011')
+
+insert Employees values(104,'ui','Sandya','Sagar','1-6-1988',23000,'Working','Management','1-4-2005')
+
+insert Employees values(105,'p','Harish','Hasan','5-10-1989',34000,'Working','Developer','11-11-2003')
+
+insert Employees values(106,'l','Lavanya','Hasan','3-2-1979',45000,'Working','Test','12-12-2009')
+
+insert Employees values(107,'J','Geetha','Banglore','9-8-1990',15000,'Working','Developer','9-8-2015')
+
+insert Employees values(108,'p','Kalyana','Banglore','9-1-1980',560000,'Working','Test','10-8-2013')
+
+insert Employees values(109,'r','Opi','Tumkur','3-9-1999',23000,'Working','Manager','9-10-2012')
+
+insert Employees values(1010,'s','Kiran','Tumkur','3-7-1996',54000,'Working','Test','9-8-2010')
+
+
+update Employees set EmployeeCity='Chennai'  where EmployeeID=104
+
+update Employees set EmployeeCity='Chennai'  where EmployeeID=106
+
+select * from Employees
+
+
+
+select * from Employees 
+where EmployeeCity='Chennai'
+
+
+
+select * from Employees where EmployeeSalary
+between 20000 and 50000
+
+
+
+
+select EmployeeFname , EmployeeID,EmployeeCity from Employees
+
+
+
+select *  From  Employees
+order by len(EmployeeFname) asc
+
+
+select * from Employees
+
+select sum(EmployeeSalary) from Employees 
+
+
+select COUNT(*)as Count from Employees
+
+
+
+select * from Employees
+where DATEPART(MM,EmployeeDOJ)=1
+
+select * from Employees
+where DATEDIFF(yy,EmployeeDOJ,GetDate()) >5
+
+
+
+
+select EmployeeDpt ,COUNT(*) from Employees group by EmployeeDpt
+
+
+select EmployeeCity ,COUNT(*) noOfEmp from Employees group by EmployeeCity
+
+
+update Employees set EmployeeCity='Pune'  where EmployeeCity='Chennai'
+
+
+select * from Employees
+
+select EmployeeDpt ,count(*) from Employees
+where EmployeeSalary>50000
+group by EmployeeDpt
+
+
+select cast (EmployeeSalary as decimal(12,4)) from Employees
+
+update Employees set Employeestatus='Resigned'  where Employeestatus='Working'
+
+select * from Employees
+
+where DATEPART(MM,EmployeeDOJ)=GETDATE()
+
+
+
+
+
